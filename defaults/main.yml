@@ -1,2 +1,7 @@
 ---
 # defaults file for manage_pipx_packages
+manage_pipx_packages_install_prereqs: true
+manage_pipx_packages_list:
+  - name: pip
+    version_constraint: latest
+    state: present

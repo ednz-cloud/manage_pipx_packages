@@ -1,2 +1,9 @@
 ---
 # vars file for manage_pipx_packages
+manage_pipx_packages_required_packages:
+  - name: python3
+    version: latest
+    state: present
+  - name: pipx
+    version: latest
+    state: present
