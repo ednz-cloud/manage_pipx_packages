@@ -1,8 +1,13 @@
 ---
-# defaults file for manage_pipx_packages
 manage_pipx_packages_install_prereqs: true
 manage_pipx_packages_path: "/usr/local/bin"
 manage_pipx_packages_list:
   - name: ansible-core
+    version_constraint: latest
+    state: present
+  - name: yamllint
+    version_constraint: latest
+    state: present
+  - name: vault-cli
     version_constraint: latest
     state: present
