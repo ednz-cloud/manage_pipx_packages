@@ -35,8 +35,7 @@ manage_pipx_packages_list: # by default, set to install ansible-core
 ```
 This variable is a list of packages, with their name, desired version and state. `version_constraint` can be multiple constraints,separated by commas (example: `>1.10`, `>1.10,<1.15,!=1.12`,`==1.13`).
 
-[!WARNING]  
-Test ?
+> **Warning** This is a warning
 
 Dependencies
 ------------
