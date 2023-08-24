@@ -17,3 +17,26 @@
               - stat_etc_hosts.stat.isreg
               - stat_etc_hosts.stat.pw_name == 'root'
               - stat_etc_hosts.stat.gr_name == 'root'
+
+    - name: "Test: packages ansible-core"
+      block:
+        - name: "Get pipx installed  packages"
+          ansible.builtin.command: "pipx list --json"
+          changed_when: false
+          register: pipx_installed_packages
+
+        - name: "Set fact"
+          ansible.builtin.set_fact:
+            pipx_simple_list: "{{ pipx_simple_list | default({}) | combine({item.key: item.value.metadata.main_package.package_version}) }}"
+          loop: "{{ pipx_installed_packages.stdout | from_json | json_query('venvs') | dict2items }}"
+
+        - name: "Verify packages ansible-core"
+          ansible.builtin.assert:
+            that:
+              - pipx_simple_list['yamllint'] is not defined
+              - pipx_simple_list['ansible-core'] is defined
+              - pipx_simple_list['vault-cli'] is not defined
+
+        - name: "Print installed packages"
+          ansible.builtin.debug:
+            msg: "{{ pipx_simple_list }}"
