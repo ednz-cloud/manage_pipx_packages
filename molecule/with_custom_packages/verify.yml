@@ -22,6 +22,8 @@
       block:
         - name: "Get pipx installed  packages"
           ansible.builtin.command: "pipx list --json"
+          environment:
+            PIPX_HOME: "/opt/pipx"
           changed_when: false
           register: pipx_installed_packages
 

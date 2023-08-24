@@ -18,10 +18,12 @@
               - stat_etc_hosts.stat.pw_name == 'root'
               - stat_etc_hosts.stat.gr_name == 'root'
 
-    - name: "Test: packages ansible-core"
+    - name: "Test: packages ansible-lint"
       block:
         - name: "Get pipx installed  packages"
           ansible.builtin.command: "pipx list --json"
+          environment:
+            PIPX_HOME: "/opt/pipx"
           changed_when: false
           register: pipx_installed_packages
 
@@ -30,12 +32,10 @@
             pipx_simple_list: "{{ pipx_simple_list | default({}) | combine({item.key: item.value.metadata.main_package.package_version}) }}"
           loop: "{{ pipx_installed_packages.stdout | from_json | json_query('venvs') | dict2items }}"
 
-        - name: "Verify packages ansible-core"
+        - name: "Verify packages ansible-lint"
           ansible.builtin.assert:
             that:
-              - pipx_simple_list['yamllint'] is not defined
-              - pipx_simple_list['ansible-core'] is defined
-              - pipx_simple_list['vault-cli'] is not defined
+              - pipx_simple_list['ansible-lint'] is defined
 
         - name: "Print installed packages"
           ansible.builtin.debug:

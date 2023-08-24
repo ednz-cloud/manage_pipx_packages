@@ -9,6 +9,7 @@
     name: "{{ item.name }}{% if item.version_constraint not in [None, '', 'latest'] %}{{ item.version_constraint }}{% endif %}"
     state: "{{ item.state }}"
   environment:
+    PIPX_HOME: "{{ manage_pipx_packages_home }}"
     PIPX_BIN_DIR: "{{ manage_pipx_packages_path }}"
   loop: "{{ manage_pipx_packages_list }}"
   when: manage_pipx_packages_list is defined

@@ -1,5 +1,6 @@
 ---
 manage_pipx_packages_install_prereqs: true
+manage_pipx_packages_home: "/opt/pipx"
 manage_pipx_packages_path: "/usr/local/bin"
 manage_pipx_packages_list:
   - name: ansible-core
