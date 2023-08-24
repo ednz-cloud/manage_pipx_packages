@@ -34,7 +34,7 @@ jobs:
         password: ${{ secrets.ACTIONS_TOKEN }}
     strategy:
       matrix:
-        test_os: [debian11, debian12, ubuntu2004, ubuntu2204]
+        test_os: [debian12, ubuntu2204]
         scenario: [default, with_custom_packages]
     env:
       ANSIBLE_HOST_KEY_CHECKING: 'false'

@@ -1,7 +1,10 @@
 manage_pipx_packages
 =========
 
-A brief description of the role goes here.
+This role enables you to manage python packages using pipx, to comply with the [PEP668](https://peps.python.org/pep-0668/) on **debian-based** distributions. It can be used on its own , or be called by other roles the install/remove packages on demand.
+
+> **Warning**
+> This role only supports ubuntu versions starting at 22.04, and debian versions starting a Debian 12. This is due to the pipx package being to out-of-date, or completely absent on older distributions. However, these older distributions typically do not enforce the PEP668, so you can use [ednxzu.manage_pip_packages](https://github.com/ednxzu/manage_pip_packages) instead.
 
 Requirements
 ------------
