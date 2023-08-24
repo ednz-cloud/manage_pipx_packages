@@ -35,7 +35,8 @@ manage_pipx_packages_list: # by default, set to install ansible-core
 ```
 This variable is a list of packages, with their name, desired version and state. `version_constraint` can be multiple constraints,separated by commas (example: `>1.10`, `>1.10,<1.15,!=1.12`,`==1.13`).
 
-> **Warning** This is a warning
+> **Warning**
+> Currently, and due to limitations in the [ansible pipx module](https://docs.ansible.com/ansible/latest/collections/community/general/pipx_module.html), adding version contraints other that `latest` will break idempotence of this role. This is not breaking your installation of the package, only the task will always be marked as changed on your playbook run. This will be fixed whenever the pipx module is fixed.
 
 Dependencies
 ------------
