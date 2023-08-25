@@ -17,8 +17,8 @@ galaxy_info:
   galaxy_tags:
     - 'ubuntu'
     - 'debian'
-    - 'adguard'
-    - 'adblock'
-    - 'docker'
+    - 'python'
+    - 'pipx'
+    - 'venv'
 
 dependencies: []
