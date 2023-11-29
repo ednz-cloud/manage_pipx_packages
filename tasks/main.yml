@@ -14,3 +14,4 @@
   loop: "{{ manage_pipx_packages_list }}"
   when: manage_pipx_packages_list is defined
     and manage_pipx_packages_list not in [None, '']
+  become: true
