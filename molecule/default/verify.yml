@@ -1,7 +1,8 @@
 ---
 - name: Verify
   hosts: all
-  gather_facts: false
+  gather_facts: true
+  become: true
   tasks:
     - name: "Test: file /etc/hosts"
       block:
@@ -26,7 +27,6 @@
             PIPX_HOME: "/opt/pipx"
           changed_when: false
           register: pipx_installed_packages
-          become: true
 
         - name: "Set fact"
           ansible.builtin.set_fact:
