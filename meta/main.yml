@@ -1,12 +1,12 @@
 ---
 # meta file for deploy_adguard
 galaxy_info:
-  namespace: 'ednxzu'
-  role_name: 'manage_pipx_packages'
-  author: 'Bertrand Lanson'
-  description: 'Package management for python using pipx on debian-based distros.'
-  license: 'license (BSD, MIT)'
-  min_ansible_version: '2.10'
+  namespace: "ednz_cloud"
+  role_name: "manage_pipx_packages"
+  author: "Bertrand Lanson"
+  description: "Package management for python using pipx on debian-based distros."
+  license: "license (BSD, MIT)"
+  min_ansible_version: "2.10"
   platforms:
     - name: Ubuntu
       versions:
@@ -15,10 +15,10 @@ galaxy_info:
       versions:
         - bookworm
   galaxy_tags:
-    - 'ubuntu'
-    - 'debian'
-    - 'python'
-    - 'pipx'
-    - 'venv'
+    - "ubuntu"
+    - "debian"
+    - "python"
+    - "pipx"
+    - "venv"
 
 dependencies: []
